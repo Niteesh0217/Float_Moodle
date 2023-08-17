@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+<!--<div class="center-block" style="width:600px;">-->
+<center>
+{% load static %}
+<center><h1><strong style="color: red;"><em> BRUTE FORCE FLOAT MOODLE </em></strong></h1>
+<!--<br> <img src="{% static 'floatapp/image/index.jpeg' %}" alt=" " </br>-->
+<link rel="stylesheet" type="text/css" href="{% static 'floatapp/css/style.css' %}">    
+    <h2 style="color: red;"><bold> Welcome <bold> </h2> </center> <br>
+    {% if user.is_authenticated %}
+    <h1> hi {{user.username}} </h1>
+    {% else %}
+    <h2> 
+    Existing user? Please login over <a href="/login">here</a> <br> <br>
+    New User? Register here <a href="/register">here</a>
+    </h2>
+    {% endif %}
+</center>
+</div>
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1> UserName: {{ user.username }} </h1>
+<h1> Name: {{ user.get_full_name }} </h1>
+<h1> Email: {{ user.email }} </h1>
+<h2> Create a Course <a href="course-create/">here</a></h2>
+<h2> Go to your registered Course <a href="course/">here</a></h2>
+
+{% endblock %}
