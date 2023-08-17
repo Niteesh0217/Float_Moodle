@@ -1,0 +1,62 @@
+<html>
+    <head>
+      <!--{% load static %}-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'floatapp/css/style.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block head %}
+        <title>Base</title>
+        {% endblock %}
+    </head>
+    <body id="bg" style="background-image: url('{% static "floatapp/image/sunset.jpeg" %}');">
+      <br>
+      {% include 'floatapp/messages.html' %}
+   
+        <div class="container">
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Home</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav">
+                    
+                    <li><a class="navbar-brand" href='/profile'>Profile</a></li>
+                    <li><a class="navbar-brand" href='/profile/edit'>Edit Profile</a></li>
+                    <li><a class="navbar-brand" href='/profile/change-password'>Change Password</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a class="navbar-brand" href='/logout'>Log out</a>
+                </ul>
+                {% else %}
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href='/password_reset'>Reset Password</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a class="navbar-brand" href='/login'>Login</a></li>
+                  <li><a class="navbar-brand" href='/register'>Register</a></li>
+                </ul>
+                {% endif %}
+              </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+          </nav>
+        </div>
+        
+        {% block body %}
+            <h1>Base</h1>
+        {% endblock %}
+     
+    </body>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>

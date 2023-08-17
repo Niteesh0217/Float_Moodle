@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %} 
+    <title>Assignments</title> 
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-12 col-sm-6 col-md-10">
+            {% if request.user.is_authenticated  %}
+                {% for x in assignment %}
+                    <h3><strong> {{ x.title }}  </strong></h3>
+                    <hr/>
+                    <p> <h4>Content</h4> {{ x.content }} </p>
+                    <br/>
+                    <p> <h4>Marks</h4> {{ x.marks }} </p>
+
+                    <p> <h4>Time</h4> {{ x.duration }} hours </p>
+
+                {% endfor %}
+                <hr/>
+                
+            {% endif %}
+            <br/>
+        </div>
+    </div>
+{% endblock %}
